@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.ttpai.framework</groupId>
+    <artifactId>ttpai-parents-build</artifactId>
+    <version>2.2.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <!-- 代码格式化配置文件 -->
+        <module>ttpai-parents-plugin-formatter</module>
+        <module>ttpai-parents-extension</module>
+    </modules>
+
+    <profiles>
+
+        <!-- ttpai-nexus -->
+        <profile>
+            <id>ttpai-nexus</id>
+
+            <properties>
+                <ttpai-dependencies.skip>true</ttpai-dependencies.skip>
+            </properties>
+
+            <!-- 仓库配置 -->
+            <repositories>
+
+                <repository>
+                    <id>ttpai-public</id>
+                    <url>http://172.16.2.101:8081/nexus/content/groups/public/</url>
+                    <snapshots>
+                        <!-- 始终下载最新的 snapshot 包 -->
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+
+            </repositories>
+
+            <!-- 插件仓库 -->
+            <pluginRepositories>
+
+                <pluginRepository>
+                    <id>ttpai-public</id>
+                    <url>http://172.16.2.101:8081/nexus/content/groups/public/</url>
+                    <snapshots>
+                        <!-- 插件仓库不需要始终下载（包括 SNAPSHOT 和 Range Version）-->
+                        <!-- 加快打包速度，避免每次都下载 formatter-maven-plugin 中的依赖  -->
+                        <updatePolicy>daily</updatePolicy>
+                    </snapshots>
+                </pluginRepository>
+
+            </pluginRepositories>
+
+            <!-- 发布内部私服 -->
+            <distributionManagement>
+
+                <repository>
+                    <id>releases</id>
+                    <url>http://172.16.2.101:8081/nexus/content/repositories/releases</url>
+                </repository>
+
+                <snapshotRepository>
+                    <id>snapshots</id>
+                    <url>http://172.16.2.101:8081/nexus/content/repositories/snapshots</url>
+                </snapshotRepository>
+
+            </distributionManagement>
+
+        </profile>
+
+    </profiles>
+
+</project>
