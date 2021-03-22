@@ -4,10 +4,45 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+
     <groupId>xyz.kail.framework</groupId>
     <artifactId>ttpai-parents</artifactId>
-    <version>2.2.0-SNAPSHOT</version>
+    <version>2.2.0</version>
     <packaging>pom</packaging>
+
+    <name>${artifactId}</name>
+    <description>ttpai-parents basic pom</description>
+    <url>https://github.com/kailbin/ttpai-parents</url>
+
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/kailbin/ttpai-parents</url>
+        <connection>https://github.com/kailbin/ttpai-parents.git</connection>
+        <developerConnection>https://github.com/kailbin/ttpai-parents</developerConnection>
+    </scm>
+
+    <developers>
+
+        <developer>
+            <name>ttpai</name>
+            <email>github@ttpai.cn</email>
+            <url>https://www.ttpai.cn</url>
+        </developer>
+
+        <developer>
+            <name>kailbin</name>
+            <email>ykb553@163.com</email>
+            <url>https://github.com/kailbin</url>
+        </developer>
+
+    </developers>
 
     <modules>
         <!-- 与 构建相关的扩展 -->
@@ -21,7 +56,7 @@
     <!-- 默认属性 -->
     <properties>
         <!-- 无法使用 project.version，被子模块继承后，该变量是子模块的版本 -->
-        <ttpai.parents.build.version>2.2.0-SNAPSHOT</ttpai.parents.build.version>
+        <ttpai.parents.build.version>2.2.0</ttpai.parents.build.version>
 
 
         <ttpai-dependencies.skip>false</ttpai-dependencies.skip>
@@ -815,6 +850,8 @@
     <!-- 根据环境区分配置，校验方法:  mvn help:active-profiles -->
     <profiles>
 
+        <!-- region 环境相关配置（Inner） -->
+
         <!-- 开发环境 -->
         <profile>
             <id>dev</id>
@@ -883,7 +920,7 @@
             </dependencies>
         </profile>
 
-        <!-- region 环境无关的特殊配置 -->
+        <!-- endregion 环境相关配置（Inner） -->
 
         <!-- 模块根目录下 war.skip.profile 文件存在，跳过 install 和 deploy -->
         <profile>
@@ -1039,7 +1076,7 @@
             </build>
         </profile>
 
-        <!-- ttpai-nexus -->
+        <!-- 【deploy】 ttpai-nexus (Inner) -->
         <profile>
             <id>ttpai-nexus</id>
 
@@ -1092,7 +1129,47 @@
             </distributionManagement>
         </profile>
 
-        <!-- endregion -->
+        <!-- 【deploy】 Open Source Project Repository Hosting(OSSRH) -->
+        <profile>
+            <id>ossrh</id>
+
+            <properties>
+                <ttpai-dependencies.skip>true</ttpai-dependencies.skip>
+            </properties>
+
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+
+                <repository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+
+        </profile>
 
     </profiles>
 
@@ -1104,6 +1181,7 @@
         </repository>
     </repositories>
 
+    <!-- 插件仓库 -->
     <pluginRepositories>
         <pluginRepository>
             <id>aliyun-public</id>

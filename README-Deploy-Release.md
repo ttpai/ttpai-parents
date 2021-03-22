@@ -1,16 +1,25 @@
 
 
-## ttpai-parents-build 先发布
+
+## ttpai-parents 发布（中央仓库）
 
 ```bash
+# ttpai-parents-build 修改版本
+mvn versions:set versions:commit -f ttpai-parents-build/pom.xml
 
+mvn clean install -f ttpai-parents-build/pom.xml
 
-```
+# 修改 ttpai.parents.build.version 属性
+vim pom.xml
 
-## ttpai-parents 发布
+# ttpai-parents-build 需要先发布
+mvn clean deploy -f ttpai-parents-build/pom.xml -Possrh
 
-```bash
+# #################################################################
+# #################################################################
 
+mvn versions:set versions:commit
 
+mvn clean deploy -Possrh -pl . -amd
 
 ```

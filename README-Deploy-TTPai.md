@@ -1,4 +1,4 @@
-## ttpai-parents 发布
+## ttpai-parents 发布（公司内部）
 
 ```bash
 # ttpai-parents-build 修改版本
