@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <groupId>xyz.kail.framework</groupId>
+    <groupId>com.ttpai.framework</groupId>
     <artifactId>ttpai-parents</artifactId>
     <version>2.2.0</version>
     <packaging>pom</packaging>
@@ -739,7 +739,7 @@
                 </executions>
                 <dependencies>
                     <dependency>
-                        <groupId>xyz.kail.framework</groupId>
+                        <groupId>com.ttpai.framework</groupId>
                         <artifactId>ttpai-parents-plugin-formatter</artifactId>
                         <version>${ttpai.parents.build.version}</version>
                     </dependency>
