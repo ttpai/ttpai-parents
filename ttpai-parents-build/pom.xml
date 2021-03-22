@@ -7,8 +7,35 @@
 
     <groupId>com.ttpai.framework</groupId>
     <artifactId>ttpai-parents-build</artifactId>
-    <version>2.2.0-SNAPSHOT</version>
+    <version>2.2.0</version>
     <packaging>pom</packaging>
+
+    <name>${artifactId}</name>
+    <description>ttpai-parents maven build component</description>
+    <url>https://github.com/kailbin/ttpai-parents</url>
+
+    <scm>
+        <url>https://github.com/kailbin/ttpai-parents</url>
+        <connection>https://github.com/kailbin/ttpai-parents.git</connection>
+        <developerConnection>https://github.com/kailbin/ttpai-parents</developerConnection>
+    </scm>
+
+    <developers>
+
+        <developer>
+            <name>kailbin</name>
+            <email>ykb553@163.com</email>
+            <url>https://github.com/kailbin</url>
+        </developer>
+
+    </developers>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
 
     <modules>
         <!-- 代码格式化配置文件 -->
@@ -18,7 +45,7 @@
 
     <profiles>
 
-        <!-- ttpai-nexus -->
+        <!-- 【deploy】 ttpai-nexus (Inner) -->
         <profile>
             <id>ttpai-nexus</id>
 
@@ -69,6 +96,47 @@
                 </snapshotRepository>
 
             </distributionManagement>
+        </profile>
+
+        <!-- 【deploy】 Open Source Project Repository Hosting(OSSRH) -->
+        <profile>
+            <id>ossrh</id>
+
+            <properties>
+                <ttpai-dependencies.skip>true</ttpai-dependencies.skip>
+            </properties>
+
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+
+                <repository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
 
         </profile>
 
