@@ -1,6 +1,4 @@
 
-
-
 ## ttpai-parents 发布（中央仓库）
 
 ```bash
@@ -12,14 +10,11 @@ mvn clean install -f ttpai-parents-build/pom.xml
 # 修改 ttpai.parents.build.version 属性
 vim pom.xml
 
-# ttpai-parents-build 需要先发布
-mvn clean deploy -f ttpai-parents-build/pom.xml -Possrh
-
 # #################################################################
 # #################################################################
 
 mvn versions:set versions:commit
 
-mvn clean deploy -Possrh -pl . -amd
+mvn clean deploy -Possrh
 
 ```

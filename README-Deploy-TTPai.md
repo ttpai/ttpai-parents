@@ -1,3 +1,4 @@
+
 ## ttpai-parents 发布（公司内部）
 
 ```bash
@@ -8,9 +9,6 @@ mvn clean install -f ttpai-parents-build/pom.xml
 
 # 修改 ttpai.parents.build.version 属性
 vim pom.xml
-
-# ttpai-parents-build 需要先发布
-mvn clean deploy -f ttpai-parents-build/pom.xml -Pttpai-nexus
 
 # #################################################################
 # #################################################################
