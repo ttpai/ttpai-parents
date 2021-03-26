@@ -7,8 +7,10 @@
 
     <groupId>cn.ttpai.framework</groupId>
     <artifactId>ttpai-parents-build</artifactId>
-    <version>2.2.0</version>
+    <version>2.2.1-SNAPSHOT</version>
     <packaging>pom</packaging>
+
+    <!-- region about ossrh-->
 
     <name>${artifactId}</name>
     <description>ttpai-parents maven build component</description>
@@ -28,6 +30,11 @@
             <url>https://github.com/kailbin</url>
         </developer>
 
+        <developer>
+            <name>zichao.zhang</name>
+            <url>https://github.com/mmx1960</url>
+        </developer>
+
     </developers>
 
     <licenses>
@@ -37,11 +44,39 @@
         </license>
     </licenses>
 
+    <!-- endregion -->
+
     <modules>
         <!-- 代码格式化配置文件 -->
         <module>ttpai-parents-plugin-formatter</module>
+        <!-- maven 生命周期扩展 -->
         <module>ttpai-parents-extension</module>
     </modules>
+
+    <properties>
+        <plexus.version>2.1.0</plexus.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-core</artifactId>
+                <version>3.6.3</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-component-annotations</artifactId>
+                <version>${plexus.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
 
     <profiles>
 
