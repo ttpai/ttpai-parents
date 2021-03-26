@@ -12,12 +12,12 @@
 
     <name>${artifactId}</name>
     <description>ttpai-parents maven build component</description>
-    <url>https://github.com/kailbin/ttpai-parents</url>
+    <url>https://github.com/ttpai/ttpai-parents</url>
 
     <scm>
-        <url>https://github.com/kailbin/ttpai-parents</url>
-        <connection>https://github.com/kailbin/ttpai-parents.git</connection>
-        <developerConnection>https://github.com/kailbin/ttpai-parents</developerConnection>
+        <url>https://github.com/ttpai/ttpai-parents</url>
+        <connection>https://github.com/ttpai/ttpai-parents.git</connection>
+        <developerConnection>https://github.com/ttpai/ttpai-parents</developerConnection>
     </scm>
 
     <developers>
