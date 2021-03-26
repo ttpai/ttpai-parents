@@ -2,6 +2,21 @@
 
 公共 父 pom
 
+## 项目结构
+- ttpai-parents【cn.ttpai.framework:ttpai-parents】**【公共 pom、默认行为、核心依赖】**
+  - ttpai-parent1【`cn`.ttpai.framework:`ttpai-parent1`】**【Spring Boot 1】**
+    - ttpai-parent1-com【`com`.ttpai.framework:`ttpai-parent`】_【兼容 GAV】_
+  - ttpai-parent2【`cn`.ttpai.framework:`ttpai-parent2`】**【Spring Boot 2】**
+    - ttpai-parent2-com【`com`.ttpai.framework:`ttpai-parent2`】_【兼容 GAV】_
+  - ttpai-parents-build【cn.ttpai.framework:ttpai-parents-build】
+    - ttpai-parents-extension【cn.ttpai.framework:ttpai-parents-extension】【Maven 扩展行为】
+    - ttpai-parents-plugin-formatter【cn.ttpai.framework:ttpai-parents-plugin-formatter】【代码格式化文件】
+
+## 其他文档
+- [版本历史](README-Version.md)
+- [Deploy 私服](README-Deploy-TTPai.md)
+- [Deploy 中央仓库](README-Deploy-Release.md)
+
 ## 解决问题
 
 todo

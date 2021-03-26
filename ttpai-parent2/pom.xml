@@ -14,6 +14,10 @@
     <artifactId>ttpai-parent2</artifactId>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>ttpai-parent2-com</module>
+    </modules>
+
     <properties>
 
         <!-- Spring -->
@@ -258,5 +262,14 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>ttpai-nexus</id>
+            <modules>
+                <!-- 排除子模块 -->
+            </modules>
+        </profile>
+    </profiles>
 
 </project>

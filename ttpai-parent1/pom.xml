@@ -4,7 +4,6 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
     <modelVersion>4.0.0</modelVersion>
-
     <parent>
         <groupId>cn.ttpai.framework</groupId>
         <artifactId>ttpai-parents</artifactId>
@@ -13,6 +12,10 @@
 
     <artifactId>ttpai-parent1</artifactId>
     <packaging>pom</packaging>
+
+    <modules>
+        <module>ttpai-parent1-com</module>
+    </modules>
 
     <properties>
 
@@ -259,5 +262,15 @@
             </plugin>
         </plugins>
     </build>
+
+    <profiles>
+        <profile>
+            <id>ttpai-nexus</id>
+            <modules>
+                <!-- 排除子模块 -->
+            </modules>
+        </profile>
+    </profiles>
+
 
 </project>
