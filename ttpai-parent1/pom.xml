@@ -25,7 +25,7 @@
 
         <!-- Spring 3th Rabbit-->
         <spring.amqp.rabbit.version>1.7.13.RELEASE</spring.amqp.rabbit.version>
-        <rabbit.amqpclient.version>4.0.3</rabbit.amqpclient.version>
+        <rabbit.amqpclient.version>4.8.0</rabbit.amqpclient.version>
 
         <!-- Spring 3th Redis-->
         <jedis.version>2.9.3</jedis.version>
