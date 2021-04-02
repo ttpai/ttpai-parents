@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>cn.ttpai.framework</groupId>
+        <artifactId>ttpai-parents</artifactId>
+        <version>2.2.2</version>
+    </parent>
+
+    <artifactId>ttpai-parent1</artifactId>
+    <packaging>pom</packaging>
+
+    <properties>
+
+        <!-- Spring -->
+        <spring.version>4.3.24.RELEASE</spring.version>
+        <spring.aop.aspectjweaver.version>1.9.4</spring.aop.aspectjweaver.version>
+
+        <!-- Spring 3th-->
+        <spring.retry.version>1.2.4.RELEASE</spring.retry.version>
+        <spring.data.commons.version>1.13.22.RELEASE</spring.data.commons.version>
+
+        <!-- Spring 3th Rabbit-->
+        <spring.amqp.rabbit.version>1.7.13.RELEASE</spring.amqp.rabbit.version>
+        <rabbit.amqpclient.version>4.0.3</rabbit.amqpclient.version>
+
+        <!-- Spring 3th Redis-->
+        <jedis.version>2.9.3</jedis.version>
+        <spring.data.keyvalue.version>1.2.22.RELEASE</spring.data.keyvalue.version>
+        <spring.data.redis.version>1.8.22.RELEASE</spring.data.redis.version>
+
+        <!-- Spring 3th Kafka -->
+        <kafka.version>2.5.1</kafka.version>
+        <spring.kafka.version>2.5.5.RELEASE</spring.kafka.version>
+
+        <!-- boot cloud-->
+        <spring.boot.version>1.5.21.RELEASE</spring.boot.version>
+        <spring.cloud.version>Edgware.SR6</spring.cloud.version>
+
+        <!-- swagger -->
+        <!-- 2016-11 -->
+        <springfox.swagger.version>2.6.1</springfox.swagger.version>
+        <!-- 2016-08 -->
+        <swagger.version>1.5.10</swagger.version>
+    </properties>
+
+    <dependencyManagement>
+
+        <dependencies>
+
+            <!-- region spring -->
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-context-support</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-expression</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-aop</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jdbc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-tx</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-web</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-webmvc</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-messaging</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-oxm</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${spring.aop.aspectjweaver.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-test</artifactId>
+                <version>${spring.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- endregion spring -->
+
+            <!-- region spring 3th -->
+
+
+            <dependency>
+                <groupId>org.springframework.retry</groupId>
+                <artifactId>spring-retry</artifactId>
+                <version>${spring.retry.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-commons</artifactId>
+                <version>${spring.data.commons.version}</version>
+            </dependency>
+
+            <!-- region spring 3th RabbitMQ -->
+
+            <dependency>
+                <groupId>org.springframework.amqp</groupId>
+                <artifactId>spring-rabbit</artifactId>
+                <version>${spring.amqp.rabbit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.amqp</groupId>
+                <artifactId>spring-amqp</artifactId>
+                <version>${spring.amqp.rabbit.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.rabbitmq</groupId>
+                <artifactId>amqp-client</artifactId>
+                <version>${rabbit.amqpclient.version}</version>
+            </dependency>
+
+            <!-- endregion spring 3th RabbitMQ -->
+
+            <!-- region spring 3th Redis -->
+
+            <dependency>
+                <groupId>redis.clients</groupId>
+                <artifactId>jedis</artifactId>
+                <version>${jedis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-keyvalue</artifactId>
+                <version>${spring.data.keyvalue.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-redis</artifactId>
+                <version>${spring.data.redis.version}</version>
+            </dependency>
+
+            <!-- endregion spring 3th Redis -->
+
+            <dependency>
+                <groupId>org.apache.kafka</groupId>
+                <artifactId>kafka-clients</artifactId>
+                <version>${kafka.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.kafka</groupId>
+                <artifactId>spring-kafka</artifactId>
+                <version>${spring.kafka.version}</version>
+            </dependency>
+
+            <!-- endregion spring 3th -->
+
+            <!-- region spring boot/cloud https://spring.io/projects/spring-boot -->
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!--spring cloud https://spring.io/projects/spring-cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- endregion spring boot -->
+
+        </dependencies>
+
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!-- spring-boot-maven-plugin -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
+                <configuration>
+                    <skip>${spring.boot.repackage.skip}</skip>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

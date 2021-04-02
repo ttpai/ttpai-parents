@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.ttpai.framework</groupId>
+    <artifactId>ttpai-parents-build</artifactId>
+    <version>2.2.2</version>
+    <packaging>pom</packaging>
+
+    <!-- region about ossrh-->
+
+    <name>${project.artifactId}</name>
+    <description>ttpai-parents maven build component</description>
+    <url>https://github.com/ttpai/ttpai-parents</url>
+
+    <scm>
+        <url>https://github.com/ttpai/ttpai-parents</url>
+        <connection>https://github.com/ttpai/ttpai-parents.git</connection>
+        <developerConnection>https://github.com/ttpai/ttpai-parents</developerConnection>
+    </scm>
+
+    <developers>
+
+        <developer>
+            <name>kailbin</name>
+            <email>ykb553@163.com</email>
+            <url>https://github.com/kailbin</url>
+        </developer>
+
+        <developer>
+            <name>zichao.zhang</name>
+            <url>https://github.com/mmx1960</url>
+        </developer>
+
+    </developers>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <!-- endregion -->
+
+    <modules>
+        <!-- 代码格式化配置文件 -->
+        <module>ttpai-parents-plugin-formatter</module>
+        <!-- maven 生命周期扩展 -->
+        <module>ttpai-parents-extension</module>
+    </modules>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+
+        <plexus.version>2.1.0</plexus.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>org.apache.maven</groupId>
+                <artifactId>maven-core</artifactId>
+                <version>3.6.3</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.codehaus.plexus</groupId>
+                <artifactId>plexus-component-annotations</artifactId>
+                <version>${plexus.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <!-- 打包源码 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!---->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+    </build>
+
+    <profiles>
+
+        <!-- 【deploy】 ttpai (Inner) -->
+        <profile>
+            <id>ttpai</id>
+
+            <!-- 仓库配置 -->
+            <repositories>
+
+                <repository>
+                    <id>ttpai-public</id>
+                    <url>http://172.16.2.101:8081/nexus/content/groups/public/</url>
+                    <snapshots>
+                        <!-- 始终下载最新的 snapshot 包 -->
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+
+            </repositories>
+
+            <!-- 插件仓库 -->
+            <pluginRepositories>
+
+                <pluginRepository>
+                    <id>ttpai-public</id>
+                    <url>http://172.16.2.101:8081/nexus/content/groups/public/</url>
+                    <snapshots>
+                        <!-- 插件仓库不需要始终下载（包括 SNAPSHOT 和 Range Version）-->
+                        <!-- 加快打包速度，避免每次都下载 formatter-maven-plugin 中的依赖  -->
+                        <updatePolicy>daily</updatePolicy>
+                    </snapshots>
+                </pluginRepository>
+
+            </pluginRepositories>
+
+            <!-- 发布内部私服 -->
+            <distributionManagement>
+
+                <repository>
+                    <id>releases</id>
+                    <url>http://172.16.2.101:8081/nexus/content/repositories/releases</url>
+                </repository>
+
+                <snapshotRepository>
+                    <id>snapshots</id>
+                    <url>http://172.16.2.101:8081/nexus/content/repositories/snapshots</url>
+                </snapshotRepository>
+
+            </distributionManagement>
+        </profile>
+
+        <!-- 【deploy】 Open Source Project Repository Hosting(OSSRH) -->
+        <profile>
+            <id>ossrh</id>
+
+            <properties>
+                <ttpai-dependencies.skip>true</ttpai-dependencies.skip>
+            </properties>
+
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+
+                <repository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+
+        </profile>
+
+    </profiles>
+
+</project>

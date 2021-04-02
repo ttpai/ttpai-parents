@@ -1,0 +1,1210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+
+    <groupId>cn.ttpai.framework</groupId>
+    <artifactId>ttpai-parents</artifactId>
+    <version>2.2.2</version>
+    <packaging>pom</packaging>
+
+    <name>${project.artifactId}</name>
+    <description>ttpai-parents basic pom</description>
+    <url>https://github.com/ttpai/ttpai-parents</url>
+
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>https://opensource.org/licenses/MIT</url>
+        </license>
+    </licenses>
+
+    <scm>
+        <url>https://github.com/ttpai/ttpai-parents</url>
+        <connection>https://github.com/ttpai/ttpai-parents.git</connection>
+        <developerConnection>https://github.com/ttpai/ttpai-parents</developerConnection>
+    </scm>
+
+    <developers>
+
+        <developer>
+            <name>ttpai</name>
+            <email>github@ttpai.cn</email>
+            <url>https://www.ttpai.cn</url>
+        </developer>
+
+        <developer>
+            <name>kailbin</name>
+            <email>ykb553@163.com</email>
+            <url>https://github.com/kailbin</url>
+        </developer>
+
+    </developers>
+
+    <modules>
+        <!-- 与 构建相关的扩展 -->
+        <module>ttpai-parents-build</module>
+        <!-- 基于 Spring Boot 1 -->
+        <module>ttpai-parent1</module>
+        <!-- 基于 Spring Boot 2 -->
+        <module>ttpai-parent2</module>
+    </modules>
+
+    <!-- 默认属性 -->
+    <properties>
+        <!-- 无法使用 project.version，被子模块继承后，该变量是子模块的版本 -->
+        <ttpai.parents.build.version>2.2.2</ttpai.parents.build.version>
+
+        <ttpai-dependencies.skip>false</ttpai-dependencies.skip>
+        <formatter.style.file>eclipse-java-google-style.xml</formatter.style.file>
+        <formatter.skip>false</formatter.skip>
+        <formatter.include>**/*.java</formatter.include>
+        <mainClass>请在 pom.xml 中配置 properties > mainClass 属性，指定启动类</mainClass>
+
+        <!-- plugin -->
+        <!-- 项目编码 -->
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <!-- 不跳过单元测试，跳过集成测试，通过包名命名 -->
+        <maven.test.skip>false</maven.test.skip>
+        <!-- 生成 javadoc 文档 -->
+        <maven.javadoc.skip>false</maven.javadoc.skip>
+
+        <ttpai.build.config.out0>noting</ttpai.build.config.out0>
+        <ttpai.build.config.out1>noting</ttpai.build.config.out1>
+        <ttpai.build.config.out2>noting</ttpai.build.config.out2>
+        <ttpai.build.config.out3>noting</ttpai.build.config.out3>
+        <ttpai.build.config.out4>noting</ttpai.build.config.out4>
+        <ttpai.build.config.out5>noting</ttpai.build.config.out5>
+        <ttpai.build.config.out6>noting</ttpai.build.config.out6>
+        <ttpai.build.config.out7>noting</ttpai.build.config.out7>
+        <ttpai.build.config.out8>noting</ttpai.build.config.out8>
+        <ttpai.build.config.out9>noting</ttpai.build.config.out9>
+
+        <!-- JDK 版本-->
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+
+        <!-- lombok provided -->
+        <lombok.version>1.18.16</lombok.version>
+
+        <!-- logger -->
+        <slf4j.api.version>1.7.30</slf4j.api.version>
+        <log4j.to.slf4j.version>2.13.3</log4j.to.slf4j.version>
+        <!-- 从 spring boot 获取 与 Spring Boot 保持统一 -->
+        <logback.version>1.1.11</logback.version>
+        <logback.gelf.version>1.0.0</logback.gelf.version>
+
+        <!-- test -->
+        <junit.version>4.13.1</junit.version>
+        <junit5.version>5.7.1</junit5.version>
+        <mockito.version>3.3.3</mockito.version>
+        <powermock.version>2.0.9</powermock.version>
+
+        <!-- common -->
+        <fastjson.version>1.2.72</fastjson.version>
+        <javassist.version>3.25.0-GA</javassist.version>
+        <druid.version>1.1.21</druid.version>
+
+        <!-- 2016-10 -->
+        <guava.version>20.0</guava.version>
+
+        <apollo.version>1.7.0</apollo.version>
+        <ttpai.utils.version>1.6.1</ttpai.utils.version>
+
+        <!-- sentinel & zookeeper -->
+        <sentinel.version>1.4.2</sentinel.version>
+        <zk.client.version>0.1</zk.client.version>
+        <zookeeper.version>3.4.8</zookeeper.version>
+        <zookeeper.curator.version>2.12.0</zookeeper.curator.version>
+
+        <!-- elasticsearch -->
+        <elasticsearch.version>5.6.12</elasticsearch.version>
+
+        <!-- dubbo -->
+        <dubbo.version>2.8.3</dubbo.version>
+
+        <!-- common web -->
+        <javax.jsp.version>2.3.3</javax.jsp.version>
+
+        <!-- httpclient -->
+        <httpcore.version>4.4.13</httpcore.version>
+        <httpclient.version>4.5.12</httpclient.version>
+
+        <!-- rose -->
+        <rose.version>1.0</rose.version>
+        <rose.jade.version>1.1</rose.jade.version>
+        <rose.jade.bmwutils.version>0.0.2</rose.jade.bmwutils.version>
+        <mysql.version>5.1.48</mysql.version>
+
+        <!-- 是否掉过 Spring Boot repackage -->
+        <spring.boot.repackage.skip>true</spring.boot.repackage.skip>
+
+        <!-- region mybatis-->
+        <!-- https://github.com/mybatis/mybatis-3 -->
+        <mybatis.version>3.5.6</mybatis.version>
+        <!-- https://github.com/mybatis/spring -->
+        <mybatis.spring.version>2.0.6</mybatis.spring.version>
+        <!-- https://github.com/mybatis/spring-boot-starter -->
+        <mybatis.spring.boot.version>2.1.4</mybatis.spring.boot.version>
+        <!-- endregion -->
+
+    </properties>
+
+    <!-- 默认依赖 -->
+    <dependencies>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- region 日志 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.api.version}</version>
+        </dependency>
+
+        <!-- commons-logging -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.api.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- java util log -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jul-to-slf4j</artifactId>
+            <version>${slf4j.api.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- log4j 1 -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>log4j-over-slf4j</artifactId>
+            <version>${slf4j.api.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- log4j 2 -->
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-to-slf4j</artifactId>
+            <version>${log4j.to.slf4j.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <!-- endregion 日志 -->
+
+        <!-- region 测试 -->
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- endregion 测试 -->
+
+    </dependencies>
+
+    <!-- 依赖管理 -->
+    <dependencyManagement>
+        <dependencies>
+
+            <!-- region common -->
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>${javassist.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.ctrip.framework.apollo</groupId>
+                <artifactId>apollo-client</artifactId>
+                <version>${apollo.version}</version>
+            </dependency>
+
+            <!-- endregion common -->
+
+            <!-- region test -->
+
+            <dependency>
+                <groupId>org.junit</groupId>
+                <artifactId>junit-bom</artifactId>
+                <version>${junit5.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-inline</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-junit-jupiter</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-module-junit4</artifactId>
+                <version>${powermock.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-api-mockito2</artifactId>
+                <version>${powermock.version}</version>
+                <scope>test</scope>
+            </dependency>
+
+            <!-- 过时 -->
+            <dependency>
+                <groupId>org.powermock</groupId>
+                <artifactId>powermock-api-mockito</artifactId>
+                <version>1.7.4</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mockito</groupId>
+                        <artifactId>mockito-core</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- endregion -->
+
+            <!-- region web -->
+
+            <dependency>
+                <groupId>javax.servlet.jsp</groupId>
+                <artifactId>javax.servlet.jsp-api</artifactId>
+                <version>${javax.jsp.version}</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <!-- endregion web -->
+
+            <!-- region httpclient-->
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpcore</artifactId>
+                <version>${httpcore.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpmime</artifactId>
+                <version>${httpclient.version}</version>
+            </dependency>
+
+            <!-- endregion httpclient-->
+
+            <!-- region logger -->
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>me.moocar</groupId>
+                <artifactId>logback-gelf</artifactId>
+                <version>${logback.gelf.version}</version>
+            </dependency>
+
+            <!-- endregion logger -->
+
+            <!-- region sentinel -->
+
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-core</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-transport-simple-http</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-annotation-aspectj</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+
+            <!-- endregion sentinel -->
+
+            <!-- region Zookeeper -->
+
+            <dependency>
+                <groupId>com.github.sgroschupf</groupId>
+                <artifactId>zkclient</artifactId>
+                <version>${zk.client.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.zookeeper</groupId>
+                <artifactId>zookeeper</artifactId>
+                <version>${zookeeper.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>log4j</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.slf4j</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-client</artifactId>
+                <version>${zookeeper.curator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-framework</artifactId>
+                <version>${zookeeper.curator.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.curator</groupId>
+                <artifactId>curator-recipes</artifactId>
+                <version>${zookeeper.curator.version}</version>
+            </dependency>
+
+            <!-- endregion Zookeeper -->
+
+            <!-- region ElasticSearch -->
+
+            <dependency>
+                <groupId>org.elasticsearch</groupId>
+                <artifactId>elasticsearch</artifactId>
+                <version>${elasticsearch.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-client</artifactId>
+                <version>${elasticsearch.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.elasticsearch.client</groupId>
+                <artifactId>elasticsearch-rest-high-level-client</artifactId>
+                <version>${elasticsearch.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.apache.logging.log4j</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <!-- endregion es ElasticSearch -->
+
+            <!-- region dubbo http://dubbo.apache.org/zh-cn/docs/user/dependencies.html -->
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>dubbo</artifactId>
+                <version>${dubbo.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>log4j</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.jboss.logging</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.httpcomponents</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.jboss.resteasy</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.jboss.spec.javax.servlet</groupId>
+                        <artifactId>jboss-servlet-api_3.1_spec</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.jboss.spec.javax.annotation</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.curator</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.apache.tomcat.embed</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.esotericsoftware.kryo</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>de.javakaffee</groupId>
+                        <artifactId>kryo-serializers</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>io.undertow</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>org.codehaus.jackson</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.fasterxml.jackson.core</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.esotericsoftware.minlog</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <!-- endregion dubbo -->
+
+            <!-- region rose -->
+
+            <dependency>
+                <groupId>com.54chen</groupId>
+                <artifactId>paoding-rose-scanning</artifactId>
+                <version>${rose.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.54chen</groupId>
+                <artifactId>paoding-rose</artifactId>
+                <version>${rose.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>javax.servlet</groupId>
+                        <artifactId>servlet-api</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.54chen</groupId>
+                <artifactId>paoding-rose-jade</artifactId>
+                <version>${rose.jade.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>com.54chen</groupId>
+                <artifactId>bmwutils</artifactId>
+                <version>${rose.jade.bmwutils.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.springframework</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>jboss</groupId>
+                        <artifactId>javassist</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>junit</groupId>
+                        <artifactId>junit</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>log4j</artifactId>
+                        <groupId>log4j</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
+            <!-- endregion rose -->
+
+            <!--swagger2-->
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger2</artifactId>
+                <version>${springfox.swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.springfox</groupId>
+                <artifactId>springfox-swagger-ui</artifactId>
+                <version>${springfox.swagger.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.swagger</groupId>
+                <artifactId>swagger-annotations</artifactId>
+                <version>${swagger.version}</version>
+            </dependency>
+
+            <!-- region mybatis-->
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis</artifactId>
+                <version>${mybatis.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis</groupId>
+                <artifactId>mybatis-spring</artifactId>
+                <version>${mybatis.spring.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.spring.boot.version}</version>
+            </dependency>
+
+            <!-- endregion -->
+
+        </dependencies>
+    </dependencyManagement>
+
+    <!-- 默认行为 -->
+    <build>
+
+        <resources>
+            <!-- java 目录下只拷贝 xml，如： Mapper.xml -->
+            <resource>
+                <directory>src/main/java</directory>
+                <includes>
+                    <include>**/*.xml</include>
+                </includes>
+            </resource>
+            <!-- resources 目录下的所有文件都拷贝 -->
+            <resource>
+                <directory>src/main/resources</directory>
+                <includes>
+                    <include>**/*.*</include>
+                </includes>
+            </resource>
+        </resources>
+
+        <extensions>
+            <extension>
+                <groupId>cn.ttpai.framework</groupId>
+                <artifactId>ttpai-parents-extension</artifactId>
+                <version>${ttpai.parents.build.version}</version>
+            </extension>
+        </extensions>
+
+        <plugins>
+
+            <!-- Maven 格式化代码 https://code.revelc.net/formatter-maven-plugin/ -->
+            <plugin>
+                <groupId>net.revelc.code.formatter</groupId>
+                <artifactId>formatter-maven-plugin</artifactId>
+                <!-- 更高版本的需要 maven 3.3.9，打包机是 3.3.3-->
+                <version>2.8.1</version>
+                <configuration>
+                    <skip>${formatter.skip}</skip>
+                    <directories>
+                        <directory>${project.build.sourceDirectory}</directory>
+                        <directory>${project.build.testSourceDirectory}</directory>
+                        <directory>${project.basedir}/src/main/resources</directory>
+                    </directories>
+                    <includes>
+                        <include>${formatter.include}</include>
+                    </includes>
+                    <configFile>${formatter.style.file}</configFile>
+                    <lineEnding>LF</lineEnding>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>format</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <dependencies>
+                    <dependency>
+                        <groupId>cn.ttpai.framework</groupId>
+                        <artifactId>ttpai-parents-plugin-formatter</artifactId>
+                        <version>${ttpai.parents.build.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <!-- 项目编码 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${maven.compiler.encoding}</encoding>
+                </configuration>
+            </plugin>
+
+            <!-- 打包源码 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!-- javadoc 文档 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.2.0</version>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <skip>${maven.javadoc.skip}</skip>
+                </configuration>
+            </plugin>
+
+            <!-- Rose 支持 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.2</version>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Rose>*</Rose>
+                            <!-- 支持通过  class.getPackage().getImplementationVersion() 获取项目信息 -->
+                            <Implementation-Title>${project.artifactId}</Implementation-Title>
+                            <Implementation-Version>${project.version}</Implementation-Version>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+
+            <!-- war 包的行为 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.2.3</version>
+                <configuration>
+                    <!-- war 没有 web.xml 编译通过 -->
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                </configuration>
+            </plugin>
+
+            <!-- 默认只对 unit 包下面的代码进行单元测试 -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.19.1</version>
+                <configuration>
+                    <!-- 不编译也不测试 -->
+                    <skip>${maven.test.skip}</skip>
+                    <includes>
+                        <include>**/unit/**/*.java</include>
+                    </includes>
+                </configuration>
+            </plugin>
+
+            <!-- mvn versions:set 不生成备份文件（不需要 versions:commit） -->
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>versions-maven-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <generateBackupPoms>false</generateBackupPoms>
+                </configuration>
+            </plugin>
+
+            <!-- Maven 依赖管理插件 2020-05-12 -->
+            <plugin>
+                <groupId>com.ttpai.dependencies</groupId>
+                <artifactId>ttpai-dependencies-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>run</goal>
+                        </goals>
+                        <configuration>
+                            <skip>${ttpai-dependencies.skip}</skip>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+        </plugins>
+
+    </build>
+
+    <!-- 根据环境区分配置，校验方法:  mvn help:active-profiles -->
+    <profiles>
+
+        <!-- region 环境相关配置（Inner） -->
+
+        <!-- 开发环境 -->
+        <profile>
+            <id>dev</id>
+            <properties>
+                <!-- 跳过代码格式化 -->
+                <formatter.skip>true</formatter.skip>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.ttpai</groupId>
+                    <artifactId>ttpai-utils-dep-apollo-local</artifactId>
+                    <version>${ttpai.utils.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <!-- 测试环境 -->
+        <profile>
+            <id>ceshi</id>
+            <properties>
+                <!-- 跳过代码格式化 -->
+                <formatter.skip>true</formatter.skip>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.ttpai</groupId>
+                    <artifactId>ttpai-utils-dep-apollo-local</artifactId>
+                    <version>${ttpai.utils.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <!-- 模拟环境 -->
+        <profile>
+            <id>moni</id>
+            <properties>
+                <!-- 跳过代码格式化 -->
+                <formatter.skip>true</formatter.skip>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.ttpai</groupId>
+                    <artifactId>ttpai-utils-dep-apollo-local</artifactId>
+                    <version>${ttpai.utils.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <!-- 灰度和生产环境 -->
+        <profile>
+            <id>prod</id>
+            <properties>
+                <!-- 跳过代码格式化 -->
+                <formatter.skip>true</formatter.skip>
+            </properties>
+            <dependencies>
+                <dependency>
+                    <groupId>com.ttpai</groupId>
+                    <artifactId>ttpai-utils-dep-apollo-local</artifactId>
+                    <version>${ttpai.utils.version}</version>
+                    <scope>provided</scope>
+                </dependency>
+            </dependencies>
+        </profile>
+
+        <!-- endregion 环境相关配置（Inner） -->
+
+        <!-- 模块根目录下 war.skip.profile 文件存在，跳过 install 和 deploy -->
+        <profile>
+            <id>ttpai_parent_file_war.skip.profile</id>
+            <activation>
+                <file>
+                    <exists>war.skip.profile</exists>
+                </file>
+            </activation>
+            <properties>
+                <maven.install.skip>true</maven.install.skip>
+                <maven.deploy.skip>true</maven.deploy.skip>
+            </properties>
+        </profile>
+
+        <!-- 模块根目录下 build.jar.profile 文件存在时，激活该 Profile -->
+        <profile>
+            <id>ttpai_parent_file_build.jar.profile</id>
+            <activation>
+                <file>
+                    <exists>build.jar.profile</exists>
+                </file>
+            </activation>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jar-plugin</artifactId>
+                        <configuration>
+                            <archive>
+                                <manifest>
+                                    <mainClass>${mainClass}</mainClass>
+                                    <addClasspath>true</addClasspath>
+                                    <classpathPrefix>lib/</classpathPrefix>
+                                    <!-- SNAPSHOT 版本 Class-Path 是 XXX-x.y.z-SNAPSHOT.jar -->
+                                    <!-- 而不是 XXX-x.y.z-20190517.110547-4.jar -->
+                                    <!-- 避免 Class-Path 与实际文件名不一致，找不到类 -->
+                                    <useUniqueVersions>false</useUniqueVersions>
+                                </manifest>
+                                <manifestEntries>
+                                    <Rose>*</Rose>
+
+                                    <!-- 支持通过  class.getPackage().getImplementationVersion() 获取项目信息 -->
+                                    <Implementation-Title>${project.artifactId}</Implementation-Title>
+                                    <Implementation-Version>${project.version}</Implementation-Version>
+
+                                    <!-- 将 config目录也加入到 classPath 下 -->
+                                    <Class-Path>config/</Class-Path>
+                                </manifestEntries>
+                            </archive>
+                            <excludes>
+                                <exclude>*.properties</exclude>
+                                <exclude>*.yaml</exclude>
+                                <exclude>*.yml</exclude>
+                                <exclude>*.xml</exclude>
+                                <exclude>*.txt</exclude>
+                                <exclude>${ttpai.build.config.out0}</exclude>
+                                <exclude>${ttpai.build.config.out1}</exclude>
+                                <exclude>${ttpai.build.config.out2}</exclude>
+                                <exclude>${ttpai.build.config.out3}</exclude>
+                                <exclude>${ttpai.build.config.out4}</exclude>
+                                <exclude>${ttpai.build.config.out5}</exclude>
+                                <exclude>${ttpai.build.config.out6}</exclude>
+                                <exclude>${ttpai.build.config.out7}</exclude>
+                                <exclude>${ttpai.build.config.out8}</exclude>
+                                <exclude>${ttpai.build.config.out9}</exclude>
+                            </excludes>
+                        </configuration>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-resources-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy-config</id>
+                                <!-- 绑定到生命周期的compile阶段，即执行compile的时候就执行该插件 -->
+                                <phase>package</phase>
+                                <!-- 使用插件的copy-resources目标 -->
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <encoding>UTF-8</encoding>
+                                    <!--拷贝到构建目录conf文件夹下 -->
+                                    <outputDirectory>${project.build.directory}/config</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <!-- 需要拷贝的文件夹 -->
+                                            <directory>src/main/resources</directory>
+                                            <!-- 需要拷贝的文件 -->
+                                            <includes>
+                                                <include>*.properties</include>
+                                                <include>*.yaml</include>
+                                                <include>*.yml</include>
+                                                <include>*.xml</include>
+                                                <include>*.txt</include>
+                                                <include>${ttpai.build.config.out0}</include>
+                                                <include>${ttpai.build.config.out1}</include>
+                                                <include>${ttpai.build.config.out2}</include>
+                                                <include>${ttpai.build.config.out3}</include>
+                                                <include>${ttpai.build.config.out4}</include>
+                                                <include>${ttpai.build.config.out5}</include>
+                                                <include>${ttpai.build.config.out6}</include>
+                                                <include>${ttpai.build.config.out7}</include>
+                                                <include>${ttpai.build.config.out8}</include>
+                                                <include>${ttpai.build.config.out9}</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                            <execution>
+                                <!-- 创建一个没用的 lib 文件夹，避免运维打包命令出错 -->
+                                <id>create-lib</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>copy-resources</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                                    <resources>
+                                        <resource>
+                                            <directory>./</directory>
+                                            <includes>
+                                                <!-- 拷贝一个没用的文件，否则报空指针 -->
+                                                <include>pom.xml</include>
+                                            </includes>
+                                        </resource>
+                                    </resources>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>copy</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>copy-dependencies</goal>
+                                </goals>
+                                <configuration>
+                                    <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+
+        <!-- 【deploy】 ttpai (Inner) -->
+        <profile>
+            <id>ttpai</id>
+
+            <!-- 仓库配置 -->
+            <repositories>
+
+                <repository>
+                    <id>ttpai-public</id>
+                    <url>http://172.16.2.101:8081/nexus/content/groups/public/</url>
+                    <snapshots>
+                        <!-- 始终下载最新的 snapshot 包 -->
+                        <updatePolicy>always</updatePolicy>
+                    </snapshots>
+                </repository>
+
+            </repositories>
+
+            <!-- 插件仓库 -->
+            <pluginRepositories>
+
+                <pluginRepository>
+                    <id>ttpai-public</id>
+                    <url>http://172.16.2.101:8081/nexus/content/groups/public/</url>
+                    <snapshots>
+                        <!-- 插件仓库不需要始终下载（包括 SNAPSHOT 和 Range Version）-->
+                        <!-- 加快打包速度，避免每次都下载 formatter-maven-plugin 中的依赖  -->
+                        <updatePolicy>daily</updatePolicy>
+                    </snapshots>
+                </pluginRepository>
+
+            </pluginRepositories>
+
+            <!-- 发布内部私服 -->
+            <distributionManagement>
+
+                <repository>
+                    <id>releases</id>
+                    <url>http://172.16.2.101:8081/nexus/content/repositories/releases</url>
+                </repository>
+
+                <snapshotRepository>
+                    <id>snapshots</id>
+                    <url>http://172.16.2.101:8081/nexus/content/repositories/snapshots</url>
+                </snapshotRepository>
+
+            </distributionManagement>
+        </profile>
+
+        <!-- 【deploy】 Open Source Project Repository Hosting(OSSRH) -->
+        <profile>
+            <id>ossrh</id>
+
+            <properties>
+                <ttpai-dependencies.skip>true</ttpai-dependencies.skip>
+            </properties>
+
+            <distributionManagement>
+                <snapshotRepository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
+                </snapshotRepository>
+
+                <repository>
+                    <id>ossrh</id>
+                    <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+                </repository>
+            </distributionManagement>
+
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-gpg-plugin</artifactId>
+                        <version>1.5</version>
+                        <executions>
+                            <execution>
+                                <id>sign-artifacts</id>
+                                <phase>verify</phase>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
+
+                </plugins>
+            </build>
+
+        </profile>
+
+    </profiles>
+
+</project>
