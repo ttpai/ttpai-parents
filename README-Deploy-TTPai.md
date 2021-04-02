@@ -5,7 +5,7 @@
 # ttpai-parents-build 修改版本
 mvn versions:set versions:commit -f ttpai-parents-build/pom.xml
 
-mvn clean deploy -f ttpai-parents-build/pom.xml -Pttpai
+mvn clean install -f ttpai-parents-build/pom.xml -Pttpai
 
 # 修改 ttpai.parents.build.version 属性
 vim pom.xml

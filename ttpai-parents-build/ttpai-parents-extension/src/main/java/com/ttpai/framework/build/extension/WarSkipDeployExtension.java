@@ -7,7 +7,6 @@ import org.codehaus.plexus.component.annotations.Component;
 
 import javax.annotation.Nullable;
 import java.util.List;
-import java.util.Properties;
 
 /**
  * @author zichao.zhang

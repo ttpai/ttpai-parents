@@ -7,15 +7,11 @@
     <parent>
         <groupId>cn.ttpai.framework</groupId>
         <artifactId>ttpai-parents</artifactId>
-        <version>2.2.1</version>
+        <version>2.2.2</version>
     </parent>
 
     <artifactId>ttpai-parent1</artifactId>
     <packaging>pom</packaging>
-
-    <modules>
-        <module>ttpai-parent1-com</module>
-    </modules>
 
     <properties>
 

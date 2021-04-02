@@ -15,7 +15,6 @@ public abstract class AbstractExtension extends AbstractMavenLifecycleParticipan
 
     protected Logger logger = LoggerFactory.getLogger(getClass());
 
-
     /**
      * 控制属性
      */
