@@ -139,7 +139,7 @@
         <rose.version>1.0</rose.version>
         <rose.jade.version>1.1</rose.jade.version>
         <rose.jade.bmwutils.version>0.0.2</rose.jade.bmwutils.version>
-        <mysql.version>5.1.48</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
 
         <!-- 是否掉过 Spring Boot repackage -->
         <spring.boot.repackage.skip>true</spring.boot.repackage.skip>
