@@ -119,7 +119,7 @@
         <!-- sentinel & zookeeper -->
         <sentinel.version>1.4.2</sentinel.version>
         <zk.client.version>0.1</zk.client.version>
-        <zookeeper.version>3.4.8</zookeeper.version>
+        <zookeeper.version>3.4.14</zookeeper.version>
         <zookeeper.curator.version>2.12.0</zookeeper.curator.version>
 
         <!-- elasticsearch -->
