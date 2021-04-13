@@ -1,4 +1,9 @@
 
+### v2.2.3 2021-04-13
+
+- javadoc 插件默认跳过，ossrh 不跳过
+- 仓库 IP 改为域名
+- [fix #6] maven-dependency-plugin 插件 打 jar 包的时候会包含 test 和 provided 的 jar 包 到 lib 下 
 
 ### v2.2.2 2021-04-02
 

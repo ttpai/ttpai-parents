@@ -7,7 +7,7 @@
 
     <groupId>cn.ttpai.framework</groupId>
     <artifactId>ttpai-parents</artifactId>
-    <version>2.2.2</version>
+    <version>2.2.3</version>
     <packaging>pom</packaging>
 
     <name>${project.artifactId}</name>
@@ -56,7 +56,7 @@
     <!-- 默认属性 -->
     <properties>
         <!-- 无法使用 project.version，被子模块继承后，该变量是子模块的版本 -->
-        <ttpai.parents.build.version>2.2.2</ttpai.parents.build.version>
+        <ttpai.parents.build.version>2.2.3</ttpai.parents.build.version>
 
         <ttpai-dependencies.skip>false</ttpai-dependencies.skip>
         <formatter.style.file>eclipse-java-google-style.xml</formatter.style.file>
@@ -72,7 +72,7 @@
         <!-- 不跳过单元测试，跳过集成测试，通过包名命名 -->
         <maven.test.skip>false</maven.test.skip>
         <!-- 生成 javadoc 文档 -->
-        <maven.javadoc.skip>false</maven.javadoc.skip>
+        <maven.javadoc.skip>true</maven.javadoc.skip>
 
         <ttpai.build.config.out0>noting</ttpai.build.config.out0>
         <ttpai.build.config.out1>noting</ttpai.build.config.out1>
@@ -993,8 +993,8 @@
                                     <mainClass>${mainClass}</mainClass>
                                     <addClasspath>true</addClasspath>
                                     <classpathPrefix>lib/</classpathPrefix>
-                                    <!-- SNAPSHOT 版本 Class-Path 是 XXX-x.y.z-SNAPSHOT.jar -->
-                                    <!-- 而不是 XXX-x.y.z-20190517.110547-4.jar -->
+                                    <!-- SNAPSHOT 版本 Class-Path 是 name-x.y.z-SNAPSHOT.jar -->
+                                    <!-- 而不是 name-x.y.z-20190517.110547-4.jar -->
                                     <!-- 避免 Class-Path 与实际文件名不一致，找不到类 -->
                                     <useUniqueVersions>false</useUniqueVersions>
                                 </manifest>
@@ -1106,6 +1106,8 @@
                                 </goals>
                                 <configuration>
                                     <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                                    <!-- 包含 runtime、compile，不包含 provided、test、system -->
+                                    <includeScope>runtime</includeScope>
                                 </configuration>
                             </execution>
                         </executions>
@@ -1123,7 +1125,7 @@
 
                 <repository>
                     <id>ttpai-public</id>
-                    <url>http://172.16.2.101:8081/nexus/content/groups/public/</url>
+                    <url>http://maven.ttpai.cn:8081/nexus/content/groups/public/</url>
                     <snapshots>
                         <!-- 始终下载最新的 snapshot 包 -->
                         <updatePolicy>always</updatePolicy>
@@ -1137,7 +1139,7 @@
 
                 <pluginRepository>
                     <id>ttpai-public</id>
-                    <url>http://172.16.2.101:8081/nexus/content/groups/public/</url>
+                    <url>http://maven.ttpai.cn:8081/nexus/content/groups/public/</url>
                     <snapshots>
                         <!-- 插件仓库不需要始终下载（包括 SNAPSHOT 和 Range Version）-->
                         <!-- 加快打包速度，避免每次都下载 formatter-maven-plugin 中的依赖  -->
@@ -1152,12 +1154,12 @@
 
                 <repository>
                     <id>releases</id>
-                    <url>http://172.16.2.101:8081/nexus/content/repositories/releases</url>
+                    <url>http://maven.ttpai.cn:8081/nexus/content/repositories/releases</url>
                 </repository>
 
                 <snapshotRepository>
                     <id>snapshots</id>
-                    <url>http://172.16.2.101:8081/nexus/content/repositories/snapshots</url>
+                    <url>http://maven.ttpai.cn:8081/nexus/content/repositories/snapshots</url>
                 </snapshotRepository>
 
             </distributionManagement>
@@ -1168,7 +1170,10 @@
             <id>ossrh</id>
 
             <properties>
+                <!-- 跳过 maven 依赖管理系统 -->
                 <ttpai-dependencies.skip>true</ttpai-dependencies.skip>
+                <!-- 生成 doc -->
+                <maven.javadoc.skip>false</maven.javadoc.skip>
             </properties>
 
             <distributionManagement>
