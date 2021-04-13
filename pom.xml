@@ -1123,7 +1123,7 @@
 
                 <repository>
                     <id>ttpai-public</id>
-                    <url>http://172.16.2.101:8081/nexus/content/groups/public/</url>
+                    <url>http://maven.ttpai.cn:8081/nexus/content/groups/public/</url>
                     <snapshots>
                         <!-- 始终下载最新的 snapshot 包 -->
                         <updatePolicy>always</updatePolicy>
@@ -1137,7 +1137,7 @@
 
                 <pluginRepository>
                     <id>ttpai-public</id>
-                    <url>http://172.16.2.101:8081/nexus/content/groups/public/</url>
+                    <url>http://maven.ttpai.cn:8081/nexus/content/groups/public/</url>
                     <snapshots>
                         <!-- 插件仓库不需要始终下载（包括 SNAPSHOT 和 Range Version）-->
                         <!-- 加快打包速度，避免每次都下载 formatter-maven-plugin 中的依赖  -->
@@ -1152,12 +1152,12 @@
 
                 <repository>
                     <id>releases</id>
-                    <url>http://172.16.2.101:8081/nexus/content/repositories/releases</url>
+                    <url>http://maven.ttpai.cn:8081/nexus/content/repositories/releases</url>
                 </repository>
 
                 <snapshotRepository>
                     <id>snapshots</id>
-                    <url>http://172.16.2.101:8081/nexus/content/repositories/snapshots</url>
+                    <url>http://maven.ttpai.cn:8081/nexus/content/repositories/snapshots</url>
                 </snapshotRepository>
 
             </distributionManagement>
