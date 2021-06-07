@@ -96,7 +96,7 @@
         <slf4j.api.version>1.7.30</slf4j.api.version>
         <log4j.to.slf4j.version>2.13.3</log4j.to.slf4j.version>
         <!-- 从 spring boot 获取 与 Spring Boot 保持统一 -->
-        <logback.version>1.1.11</logback.version>
+        <logback.version>1.2.0</logback.version>
         <logback.gelf.version>1.0.0</logback.gelf.version>
 
         <!-- test -->
